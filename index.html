@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zhaojie Chai | Brown University</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Zhaojie Chai's personal webpage. Particle simulations and scientific machine learning for red blood cells, blood clots, droplets and heat transfer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap">
+<style>
+/* Layout: fixed left sidebar (photo, name, links) and a 660px right column of sections. Stacks on narrow screens. */
+:root{
+  --bg:#ffffff;
+  --text:#595959;
+  --strong:#222222;
+  --head:#043361;
+  --link:#2a7fb8;
+  --link-hover:#0b5a8f;
+  --line:#e5e5e5;
+  --soft:#f5f7fa;
+  --mono:"Ubuntu Mono", ui-monospace, Menlo, Consolas, monospace;
+  --sans:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#20212b; --text:#c9cad0; --strong:#eeeff0; --head:#3eb7f0; --link:#3eb7f0; --link-hover:#8fd3f5;
+    --line:#353747; --soft:#272836; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#20212b; --text:#c9cad0; --strong:#eeeff0; --head:#3eb7f0; --link:#3eb7f0; --link-hover:#8fd3f5;
+  --line:#353747; --soft:#272836; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-decoration:none}
+a:hover{color:var(--link-hover);text-decoration:underline}
+a:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:2px}
+strong{color:var(--strong);font-weight:600}
+img{max-width:100%;display:block}
+
+.wrapper{max-width:980px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;grid-template-columns:250px minmax(0,1fr);gap:48px}
+
+/* sidebar */
+aside{position:sticky;top:0;align-self:start;padding-top:56px;text-align:center}
+.avatar{width:170px;height:170px;margin:0 auto 18px;border-radius:50%;background:var(--soft);border:1px dashed var(--line);display:grid;place-items:center;color:var(--head);font:600 2.4rem/1 var(--sans);letter-spacing:.02em;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+aside h1{font-size:1.75rem;font-weight:500;color:var(--head);margin:0 0 2px;line-height:1.15}
+aside .zh{color:var(--text);margin:0 0 12px;font-size:1rem}
+aside .pos{font-size:1.05rem;color:var(--strong);margin:0}
+aside .aff{margin:0 0 8px}
+aside .email{font:14px var(--mono);margin:0;word-break:break-all}
+.social{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin:16px 0 22px}
+.social a{width:2.3rem;height:2.3rem;display:grid;place-items:center;border-radius:50%;color:var(--head);transition:transform .15s ease, background-color .15s ease}
+.social a:hover{background:var(--soft);transform:scale(1.15);text-decoration:none}
+.social svg{width:20px;height:20px;fill:currentColor}
+.social a.todo{opacity:.45}
+aside nav{display:flex;flex-direction:column;gap:2px;font-size:.93rem;border-top:1px solid var(--line);padding-top:14px;max-width:200px;margin:0 auto}
+aside nav a{color:var(--text);padding:2px 0}
+aside nav a:hover{color:var(--link)}
+
+/* main column */
+main{padding-top:56px;padding-bottom:60px;min-width:0}
+h2{color:var(--head);font-weight:500;font-size:1.55rem;line-height:1.15;margin:0 0 14px;scroll-margin-top:16px}
+section{margin-bottom:40px}
+p,ul,ol{margin:0 0 14px}
+ul{padding-left:1.25rem}
+li{margin-bottom:4px}
+.date{font-family:var(--mono);color:var(--strong);white-space:nowrap}
+.methods{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;padding:0;list-style:none}
+.methods li{margin:0;font:14px var(--mono);border:1px solid var(--line);border-radius:3px;padding:1px 8px;color:var(--strong)}
+
+/* highlights */
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.gallery figure{margin:0;min-width:0}
+.gallery figure.wide,.gallery .slot.wide{grid-column:1/-1}
+.gallery img{width:100%;border:1px solid var(--line);border-radius:4px;background:#fff}
+.gallery figcaption{font-size:.86rem;margin-top:6px;line-height:1.45}
+.gallery .slot{border:1px dashed var(--line);border-radius:4px;background:var(--soft);aspect-ratio:16/9;display:grid;place-items:center;text-align:center;font:13px/1.5 var(--mono);padding:12px}
+
+/* software window */
+.window{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg)}
+.window .bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--soft);border-bottom:1px solid var(--line);font:13px var(--mono);color:var(--text)}
+.window .bar i{width:10px;height:10px;border-radius:50%;display:inline-block;background:#e0605a}
+.window .bar i:nth-child(2){background:#e5b63c}
+.window .bar i:nth-child(3){background:#5cb85c;margin-right:8px}
+.repo{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:16px;border-top:1px solid var(--line)}
+.repo:first-of-type{border-top:0}
+.repo .thumb{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;aspect-ratio:4/3;display:grid;place-items:center}
+.repo .thumb img{width:100%;height:100%;object-fit:contain}
+.repo .thumb.text{background:var(--soft);font:13px var(--mono);color:var(--head);text-align:center;padding:8px}
+.repo h3{margin:0 0 4px;font:600 15px var(--mono);color:var(--strong)}
+.repo p{margin:0 0 6px;font-size:.93rem}
+.repo .tags{font:13px var(--mono);color:var(--text)}
+
+/* publications */
+.legend{font-size:.9rem;margin-bottom:8px}
+h3.sub{font-size:1.05rem;font-weight:600;color:var(--head);margin:18px 0 8px}
+ol.bib{padding-left:1.8rem;margin:0}
+ol.bib li{margin-bottom:14px;padding-left:4px}
+.bib .title{font-weight:600;color:var(--strong)}
+.bib .author{font-size:.94rem}
+.bib .venue{font-style:italic;font-size:.94rem}
+.bib .links{margin-top:4px;display:flex;flex-wrap:wrap;gap:6px}
+.bib .links a{font-size:12px;line-height:1;border:1px solid var(--strong);color:var(--strong);padding:3px 8px;border-radius:2px}
+.bib .links a:hover{border-color:var(--link);color:var(--link);text-decoration:none}
+
+h4{color:var(--head);font-weight:600;font-size:1rem;margin:0 0 6px}
+footer{font-size:.85rem;border-top:1px solid var(--line);padding-top:14px}
+
+@media (max-width:860px){
+  .wrapper{grid-template-columns:minmax(0,1fr);gap:0}
+  aside{position:static;padding-top:32px;border-bottom:1px solid var(--line);padding-bottom:20px}
+  aside nav{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:4px 14px;max-width:none}
+  .avatar{width:130px;height:130px}
+  main{padding-top:28px}
+}
+@media (max-width:480px){
+  .gallery{grid-template-columns:minmax(0,1fr)}
+  .repo{grid-template-columns:minmax(0,1fr)}
+  .repo .thumb{max-width:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<aside>
+  <div class="avatar" role="img" aria-label="Photo placeholder">ZC</div>
+  <h1>Zhaojie Chai</h1>
+  <p class="pos">Postdoctoral Research Associate</p>
+  <p class="aff"><a href="https://www.brown.edu/academics/applied-mathematics/">Applied Mathematics, Brown University</a></p>
+  <p class="email">zhaojie_chai [at] brown [dot] edu</p>
+  <div class="social">
+    <!-- add when ready: <a class="todo" href="#" title="Google Scholar (link to add)" aria-label="Google Scholar"><svg viewBox="0 0 24 24"><path d="M12 2 1 9l4 2.6V17h2v-4.1L12 16l11-7L12 2zm0 16.4-5-3.2V19a5 5 0 0 0 10 0v-3.8l-5 3.2z"/></svg></a> -->
+    <!-- add when ready: <a class="todo" href="assets/files/CV.pdf" title="CV (PDF to add)" aria-label="CV"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zM14 3.5V8h4.5zM8.5 12a2.5 2.5 0 0 0 0 5h1v-1.3h-1a1.2 1.2 0 0 1 0-2.4h1V12zm3 0 1.6 5h1.4l1.6-5h-1.4l-.9 3.2-.9-3.2z"/></svg></a> -->
+    <a href="https://github.com/ZhaojieC" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+    <a href="https://orcid.org/0000-0001-6571-247X" title="ORCID" aria-label="ORCID"><svg viewBox="0 0 24 24"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zM8.3 17.3H6.9V8.1h1.4zM7.6 7.1a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8zm2.6 1h3.6c3.4 0 5 2.4 5 4.6 0 2.4-1.9 4.6-5 4.6h-3.6zm1.4 1.3v6.7h2.1c3 0 3.7-2.3 3.7-3.4 0-1.8-1.1-3.3-3.6-3.3z"/></svg></a>
+    <a href="https://www.linkedin.com/in/zhaojiechai" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a>
+  </div>
+  <nav aria-label="Sections">
+    <a href="#about">About Me</a>
+    <a href="#research">Research Interests</a>
+    <a href="#news">News</a>
+    <a href="#highlights">Research Highlights</a>
+    <a href="#software">Software</a>
+    <a href="#publications">Publications</a>
+    <a href="#services">Services</a>
+  </nav>
+</aside>
+
+<main>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a Postdoctoral Research Associate in the <a href="https://www.brown.edu/research/projects/crunch/">CRUNCH Group</a>, Division of Applied Mathematics at Brown University, working with <a href="https://www.brown.edu/research/projects/crunch/george-karniadakis">George Em Karniadakis</a>. I obtained my Ph.D. from the University of Connecticut in 2022.</p>
+    <p>I build particle models of soft and living matter and run them at scale, mostly in LAMMPS. The same family of methods lets me look at quite different problems: how red blood cells change shape and get trapped in disease, how a blood clot breaks apart, how a droplet wets a wall, and how heat spreads through a battery cell. I also work on scientific machine learning and AI agents, which help me fit these models to data and speed them up.</p>
+  </section>
+
+  <section id="research">
+    <h2>Research Interests</h2>
+    <ul class="methods" aria-label="Methods">
+      <li>Molecular dynamics</li><li>Dissipative particle dynamics</li><li>Scientific machine learning</li><li>PINN / DeepONet</li><li>AI agents</li>
+    </ul>
+    <ul>
+      <li><strong>Scientific machine learning:</strong> physics-informed neural networks and KANs to infer parameters of cell signaling models; reinforcement learning with particle-based environments; surrogate models trained on particle simulation data.</li>
+      <li><strong>AI agents for science:</strong> self-improving teams of LLM agents for autonomous discovery and for evolving numerical algorithms (GRAFT-ATHENA).</li>
+      <li><strong>Red blood cells in disease:</strong> cell shape, stiffness and adhesion in Gaucher disease, hereditary stomatocytosis, sickle cell disease and reticulocytes; filtration through the spleen.</li>
+      <li><strong>Blood clots and thrombectomy:</strong> fibrin clot mechanics and how a spinning device breaks a clot into debris, with Renee Zhao's group at Stanford.</li>
+      <li><strong>Droplets and contact lines:</strong> wetting, liquid bridges, moving contact lines and thin-film waves.</li>
+      <li><strong>Heat and mass transfer:</strong> thermal runaway in lithium-ion cells and transport of chemical species.</li>
+    </ul>
+  </section>
+
+  <section id="news">
+    <h2>News</h2>
+    <ul>
+      <li><span class="date">[Nov. 2026]</span> Two new preprints on red blood cells in <a href="https://arxiv.org/abs/2611.27960">Gaucher disease</a> and <a href="https://arxiv.org/abs/2611.16241">echinocytes in a splenic slit</a>.</li>
+      <li><span class="date">[Oct. 2026]</span> Released <a href="https://github.com/ZhaojieC/rbc-dpd-lammps">rbc-dpd-lammps</a>, our red blood cell model for LAMMPS, with a <a href="https://github.com/ZhaojieC/rbc-dpd-lammps-gpu">GPU version</a>.</li>
+      <li><span class="date">[Oct. 2026]</span> Two papers accepted in <em>Biophysical Journal</em>, on Gaucher red blood cells and on stomatocytes.</li>
+      <li><span class="date">[Oct. 2026]</span> Paper on macrophage-mediated red blood cell clearance published in <em>PNAS Nexus</em>.</li>
+      <li><span class="date">[Sep. 2025]</span> Paper on blood rheology in Gaucher disease published in <em>PLOS Computational Biology</em>.</li>
+      <li><span class="date">[Jan. 2023]</span> Joined Brown University as a postdoc.</li>
+      <li><span class="date">[Dec. 2022]</span> Received my Ph.D. from the University of Connecticut.</li>
+    </ul>
+  </section>
+
+  <section id="highlights">
+    <h2>Research Highlights</h2>
+    <div class="gallery">
+      <div class="slot wide">video: pocked red blood cell in a slit<br>(pitted RBC, My Movie 6_2)</div>
+      <div class="slot">video: vacuoles in a red blood cell<br>(pitted RBC, My Movie 7_2)</div>
+      <div class="slot">video: stomatocyte<br>(Biophys J Figure360, Fig. 9)</div>
+      <div class="slot">video: spinner breaking up a clot<br>(clot debulking, Movie 1)</div>
+      <div class="slot">video: clot debris<br>(clot debulking, Movie 2)</div>
+      <div class="slot">video slot<br>droplet / liquid bridge</div>
+      <div class="slot">image slot<br>battery temperature field</div>
+      <div class="slot">video slot<br>chemical transport</div>
+      <div class="slot">video slot<br>new simulation</div>
+    </div>
+  </section>
+
+  <section id="software">
+    <h2>Software</h2>
+    <div class="window">
+      <div class="bar"><i></i><i></i><i></i>github.com/ZhaojieC</div>
+      <div class="repo">
+        <a class="thumb text" href="https://github.com/ZhaojieC/rbc-dpd-lammps">RBC<br>DPD</a>
+        <div><h3><a href="https://github.com/ZhaojieC/rbc-dpd-lammps">rbc-dpd-lammps</a></h3><p>A red blood cell model for LAMMPS: a triangulated membrane in a DPD solvent, with bounce-back walls and five small examples, from a cell at rest to a cell in a slit.</p><div class="tags">C++ · LAMMPS · DPD</div></div>
+      </div>
+      <div class="repo">
+        <a class="thumb text" href="https://github.com/ZhaojieC/rbc-dpd-lammps-gpu">GPU<br>KOKKOS</a>
+        <div><h3><a href="https://github.com/ZhaojieC/rbc-dpd-lammps-gpu">rbc-dpd-lammps-gpu</a></h3><p>The same red blood cell model on one NVIDIA GPU through the KOKKOS package.</p><div class="tags">C++ · KOKKOS · CUDA</div></div>
+      </div>
+      <div class="repo">
+        <a class="thumb text" href="https://github.com/ZhaojieC/particlegym">RL<br>JAX</a>
+        <div><h3><a href="https://github.com/ZhaojieC/particlegym">particlegym</a></h3><p>Physics-based particle simulations as fast reinforcement-learning environments in 2D and 3D: crowds, games, swimmers and cells.</p><div class="tags">Python · JAX · RL</div></div>
+      </div>
+      <div class="repo">
+        <a class="thumb text" href="https://github.com/ZhaojieC/Signaling-Biophysical-Framework">PINN<br>PIKAN</a>
+        <div><h3><a href="https://github.com/ZhaojieC/Signaling-Biophysical-Framework">Signaling-Biophysical-Framework</a></h3><p>Code for the macrophage signaling model in <em>PNAS Nexus</em> (2026): parameter inference with PINNs and PIKANs.</p><div class="tags">Python · JAX · PyTorch</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <p class="legend">* denotes equal contribution.</p>
+
+    <ol class="bib">
+      <li><div class="title">Receptor abundance alone underpredicts red blood cell adhesion in Gaucher disease</div><div class="author"><strong>Zhaojie Chai</strong>, Pierre A. Buffet, Melanie Franco, George Em Karniadakis</div><div class="venue">arXiv:2611.27960, 2026</div><div class="links"><a href="https://arxiv.org/abs/2611.27960">arXiv</a></div></li>
+      <li><div class="title">Stretched bilayer-cytoskeleton links hold echinocytes in a model splenic slit</div><div class="author"><strong>Zhaojie Chai</strong>*, Jianlu Zheng*, He Li, Ming Dao, George Em Karniadakis</div><div class="venue">arXiv:2611.16241, 2026</div><div class="links"><a href="https://arxiv.org/abs/2611.16241">arXiv</a></div></li>
+      <li><div class="title">The typical red cell makes too little vacuole material for coalescence to build the large vacuoles of pocked cells</div><div class="author"><strong>Zhaojie Chai</strong>*, Jianlu Zheng*, He Li, Ming Dao, George Em Karniadakis</div><div class="venue">arXiv:2610.22646, 2026</div><div class="links"><a href="https://arxiv.org/abs/2610.22646">arXiv</a></div></li>
+      <li><div class="title">Quantifying the biophysical properties of red blood cells in Gaucher disease</div><div class="author"><strong>Zhaojie Chai</strong>, Marine de Person, Pierre A. Buffet, Melanie Franco, George Em Karniadakis</div><div class="venue">Biophysical Journal, 2026 (in press)</div><div class="links"><a href="https://doi.org/10.1016/j.bpj.2026.10.021">Pub</a><a href="https://arxiv.org/abs/2608.24021">arXiv</a><a href="https://github.com/ZhaojieC/rbc-dpd-lammps">Code</a></div></li>
+      <li><div class="title">Quantifying the biophysical properties of stomatocytes in health and disease</div><div class="author"><strong>Zhaojie Chai</strong>, Jianlu Zheng, He Li, Ming Dao, George Em Karniadakis</div><div class="venue">Biophysical Journal, 2026 (in press)</div><div class="links"><a href="https://doi.org/10.1016/j.bpj.2026.10.007">Pub</a><a href="https://arxiv.org/abs/2606.05227">arXiv</a></div></li>
+      <li><div class="title">A multiscale signaling-biophysical framework reveals mechanisms of macrophage-mediated RBC clearance in sickle cell and Gaucher disease</div><div class="author"><strong>Zhaojie Chai</strong>, Nazanin Ahmadi Daryakenari, George Em Karniadakis</div><div class="venue">PNAS Nexus 5(10), pgag348, 2026</div><div class="links"><a href="https://doi.org/10.1093/pnasnexus/pgag348">Pub</a><a href="https://github.com/ZhaojieC/Signaling-Biophysical-Framework">Code</a></div></li>
+      <li><div class="title">Quantifying reticulocyte biomechanics in health and disease</div><div class="author"><strong>Zhaojie Chai</strong>, Jianlu Zheng, He Li, Ming Dao, George Em Karniadakis</div><div class="venue">arXiv:2607.21810, 2026</div><div class="links"><a href="https://arxiv.org/abs/2607.21810">arXiv</a></div></li>
+      <li><div class="title">GRAFT-ATHENA: Self-improving agentic teams for autonomous discovery and evolutionary numerical algorithms</div><div class="author">Juan Diego Toscano, <strong>Zhaojie Chai</strong>, George Em Karniadakis</div><div class="venue">arXiv:2605.11117, 2026</div><div class="links"><a href="https://arxiv.org/abs/2605.11117">arXiv</a></div></li>
+      <li><div class="title">In silico biophysics and rheology of blood and red blood cells in Gaucher disease</div><div class="author"><strong>Zhaojie Chai</strong>, Guansheng Li, Papa Alioune Ndour, Philippe Connes, Pierre A. Buffet, Melanie Franco, George Em Karniadakis</div><div class="venue">PLOS Computational Biology 21(9), e1012705, 2025</div><div class="links"><a href="https://doi.org/10.1371/journal.pcbi.1012705">Pub</a><a href="https://doi.org/10.1101/2024.12.10.627687">bioRxiv</a></div></li>
+      <li><div class="title">Dynamics of the axon plasma membrane skeleton</div><div class="author"><strong>Zhaojie Chai</strong>, Shiju Gu, George Lykotrafitis</div><div class="venue">Soft Matter 19(14), 2514-2528, 2023</div><div class="links"><a href="https://doi.org/10.1039/d2sm01602h">Pub</a></div></li>
+      <li><div class="title">The periodic axon membrane skeleton leads to Na nanodomains but does not impact action potentials</div><div class="author"><strong>Zhaojie Chai</strong>, Anastasios V. Tzingounis, George Lykotrafitis</div><div class="venue">Biophysical Journal 121(18), 3334-3344, 2022</div><div class="links"><a href="https://doi.org/10.1016/j.bpj.2022.08.027">Pub</a></div></li>
+      <li><div class="title">Deep reinforcement learning with a particle dynamics environment applied to emergency evacuation of a room with obstacles</div><div class="author">Yihao Zhang, <strong>Zhaojie Chai</strong>, George Lykotrafitis</div><div class="venue">Physica A, 125845, 2021</div><div class="links"><a href="https://doi.org/10.1016/j.physa.2021.125845">Pub</a><a href="https://arxiv.org/abs/2012.00065">arXiv</a></div></li>
+      <li><div class="title">A deep reinforcement learning model based on deterministic policy gradient for collective neural crest cell migration</div><div class="author">Yihao Zhang, <strong>Zhaojie Chai</strong>, Yubing Sun, George Lykotrafitis</div><div class="venue">arXiv:2007.03190, 2020</div><div class="links"><a href="https://arxiv.org/abs/2007.03190">arXiv</a></div></li>
+    </ol>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <h4>Editorial</h4>
+    <ul><li>Associate Editor, <em>Journal of Emerging Investigators</em> (during Ph.D.)</li></ul>
+    <h4>Journal Reviewer</h4>
+    <ul><li><em>Journal of Theoretical Biology</em></li><li><em>PLOS ONE</em></li></ul>
+    <h4>Patents</h4>
+    <ul><li>Inventor on three Chinese patents.</li></ul>
+  </section>
+
+  <footer>Last updated: November 2026</footer>
+</main>
+</div>
+</body>
+</html>

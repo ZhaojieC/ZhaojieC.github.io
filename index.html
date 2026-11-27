@@ -76,12 +76,12 @@ li{margin-bottom:4px}
 .methods li{margin:0;font:14px var(--mono);border:1px solid var(--line);border-radius:3px;padding:1px 8px;color:var(--strong)}
 
 /* highlights */
-.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
 .gallery figure{margin:0;min-width:0}
-.gallery figure.wide,.gallery .slot.wide{grid-column:1/-1}
-.gallery img{width:100%;border:1px solid var(--line);border-radius:4px;background:#fff}
+.gallery figure.wide{grid-column:1/-1}
+.gallery img,.gallery video{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px;background:#fff}
+.gallery video{aspect-ratio:4/3;object-fit:cover}
 .gallery figcaption{font-size:.86rem;margin-top:6px;line-height:1.45}
-.gallery .slot{border:1px dashed var(--line);border-radius:4px;background:var(--soft);aspect-ratio:16/9;display:grid;place-items:center;text-align:center;font:13px/1.5 var(--mono);padding:12px}
 
 /* software window */
 .window{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg)}
@@ -192,15 +192,34 @@ footer{font-size:.85rem;border-top:1px solid var(--line);padding-top:14px}
   <section id="highlights">
     <h2>Research Highlights</h2>
     <div class="gallery">
-      <div class="slot wide">video: pocked red blood cell in a slit<br>(pitted RBC, My Movie 6_2)</div>
-      <div class="slot">video: vacuoles in a red blood cell<br>(pitted RBC, My Movie 7_2)</div>
-      <div class="slot">video: stomatocyte<br>(Biophys J Figure360, Fig. 9)</div>
-      <div class="slot">video: spinner breaking up a clot<br>(clot debulking, Movie 1)</div>
-      <div class="slot">video: clot debris<br>(clot debulking, Movie 2)</div>
-      <div class="slot">video slot<br>droplet / liquid bridge</div>
-      <div class="slot">image slot<br>battery temperature field</div>
-      <div class="slot">video slot<br>chemical transport</div>
-      <div class="slot">video slot<br>new simulation</div>
+      <figure class="wide">
+        <img src="assets/media/covers_strip_1000.jpg" srcset="assets/media/covers_strip_1000.jpg 1000w, assets/media/covers_strip_1800.jpg 1800w" sizes="(max-width: 860px) calc(100vw - 32px), 650px" width="1800" height="807" alt="Three renderings of red blood cells made for our 2026 papers">
+        <figcaption>Artwork for our 2026 papers, left to right: macrophage clearance of red cells in sickle cell and Gaucher disease (<a href="https://doi.org/10.1093/pnasnexus/pgag348"><em>PNAS Nexus</em></a>), hereditary stomatocytosis (<a href="https://doi.org/10.1016/j.bpj.2026.10.007"><em>Biophys. J.</em></a>) and Gaucher disease (<a href="https://doi.org/10.1016/j.bpj.2026.10.021"><em>Biophys. J.</em></a>).</figcaption>
+      </figure>
+      <figure>
+        <video muted loop playsinline preload="none" width="600" height="450" poster="assets/media/slit_clogging.jpg" aria-label="Red and blue red blood cells pile up at a row of pillars and squeeze through the gaps"><source src="assets/media/slit_clogging.mp4" type="video/mp4"></video>
+        <figcaption>Healthy (red) and stomatocytic (blue) red cells pile up at a row of pillars that mimics the splenic slits. <a href="https://doi.org/10.1016/j.bpj.2026.10.007"><em>Biophys. J.</em> 2026</a></figcaption>
+      </figure>
+      <figure>
+        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/pocked_passage.jpg" aria-label="A pink red blood cell with small coloured vacuoles passes through a slit in a wall, again and again"><source src="assets/media/pocked_passage.mp4" type="video/mp4"></video>
+        <figcaption>A pocked red cell with ten vacuoles, one colour each, crosses a narrow slit again and again. <a href="https://arxiv.org/abs/2610.22646">arXiv 2026</a></figcaption>
+      </figure>
+      <figure>
+        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/echinocyte_slit.jpg" aria-label="A spiky red blood cell is pushed into a narrow slit and stays stuck"><source src="assets/media/echinocyte_slit.mp4" type="video/mp4"></video>
+        <figcaption>A stage III echinocyte stays stuck in a model splenic slit as the pressure drop rises. <a href="https://arxiv.org/abs/2611.16241">arXiv 2026</a></figcaption>
+      </figure>
+      <figure>
+        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/echinocyte_links.jpg" aria-label="Cut view of a red blood cell in a slit: the red membrane and the blue skeleton pull apart as links fail"><source src="assets/media/echinocyte_links.mp4" type="video/mp4"></video>
+        <figcaption>Cut through the slit: as a stage III echinocyte is pushed in, links between its bilayer (red) and skeleton (blue) fail (black dots). <a href="https://arxiv.org/abs/2611.16241">arXiv 2026</a></figcaption>
+      </figure>
+      <figure>
+        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/retic_tube.jpg" aria-label="A green cell changes shape as it flows through a tube"><source src="assets/media/retic_tube.mp4" type="video/mp4"></video>
+        <figcaption>A reticulocyte (green) changes shape as it flows through a 9 µm channel. <a href="https://arxiv.org/abs/2607.21810">arXiv 2026</a></figcaption>
+      </figure>
+      <figure>
+        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/gaucher_suspension.jpg" aria-label="Many red blood cells tumble in a suspension"><source src="assets/media/gaucher_suspension.mp4" type="video/mp4"></video>
+        <figcaption>Red blood cells in suspension, from our simulations of blood rheology in Gaucher disease. <a href="https://doi.org/10.1371/journal.pcbi.1012705"><em>PLOS Comput. Biol.</em> 2025</a></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -257,5 +276,25 @@ footer{font-size:.85rem;border-top:1px solid var(--line);padding-top:14px}
   <footer>Last updated: November 2026</footer>
 </main>
 </div>
+<script>
+// Research Highlights: each loop plays only while it is on screen. Readers who ask for reduced motion get the
+// poster with player controls instead.
+(function(){
+  var vids=document.querySelectorAll('.gallery video');
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(still||!('IntersectionObserver' in window)){
+    for(var i=0;i<vids.length;i++){vids[i].controls=true;vids[i].preload='metadata';}
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v=e.target;
+      if(e.isIntersecting){var p=v.play(); if(p&&p.catch){p.catch(function(){v.controls=true;});}}
+      else{v.pause();}
+    });
+  },{threshold:0.25});
+  for(var j=0;j<vids.length;j++){io.observe(vids[j]);}
+})();
+</script>
 </body>
 </html>

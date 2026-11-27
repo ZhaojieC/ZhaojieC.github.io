@@ -79,8 +79,7 @@ li{margin-bottom:4px}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
 .gallery figure{margin:0;min-width:0}
 .gallery figure.wide{grid-column:1/-1}
-.gallery img,.gallery video{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px;background:#fff}
-.gallery video{aspect-ratio:4/3;object-fit:cover}
+.gallery img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px;background:#fff}
 .gallery figcaption{font-size:.86rem;margin-top:6px;line-height:1.45}
 
 /* software window */
@@ -92,8 +91,7 @@ li{margin-bottom:4px}
 .repo{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:16px;border-top:1px solid var(--line)}
 .repo:first-of-type{border-top:0}
 .repo .thumb{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;aspect-ratio:4/3;display:grid;place-items:center}
-.repo .thumb img{width:100%;height:100%;object-fit:contain}
-.repo .thumb.text{background:var(--soft);font:13px var(--mono);color:var(--head);text-align:center;padding:8px}
+.repo .thumb img{width:100%;height:100%;object-fit:cover}
 .repo h3{margin:0 0 4px;font:600 15px var(--mono);color:var(--strong)}
 .repo p{margin:0 0 6px;font-size:.93rem}
 .repo .tags{font:13px var(--mono);color:var(--text)}
@@ -196,30 +194,6 @@ footer{font-size:.85rem;border-top:1px solid var(--line);padding-top:14px}
         <img src="assets/media/covers_strip_1000.jpg" srcset="assets/media/covers_strip_1000.jpg 1000w, assets/media/covers_strip_1800.jpg 1800w" sizes="(max-width: 860px) calc(100vw - 32px), 650px" width="1800" height="807" alt="Three renderings of red blood cells made for our 2026 papers">
         <figcaption>Artwork for our 2026 papers, left to right: macrophage clearance of red cells in sickle cell and Gaucher disease (<a href="https://doi.org/10.1093/pnasnexus/pgag348"><em>PNAS Nexus</em></a>), hereditary stomatocytosis (<a href="https://doi.org/10.1016/j.bpj.2026.10.007"><em>Biophys. J.</em></a>) and Gaucher disease (<a href="https://doi.org/10.1016/j.bpj.2026.10.021"><em>Biophys. J.</em></a>).</figcaption>
       </figure>
-      <figure>
-        <video muted loop playsinline preload="none" width="600" height="450" poster="assets/media/slit_clogging.jpg" aria-label="Red and blue red blood cells pile up at a row of pillars and squeeze through the gaps"><source src="assets/media/slit_clogging.mp4" type="video/mp4"></video>
-        <figcaption>Healthy (red) and stomatocytic (blue) red cells pile up at a row of pillars that mimics the splenic slits. <a href="https://doi.org/10.1016/j.bpj.2026.10.007"><em>Biophys. J.</em> 2026</a></figcaption>
-      </figure>
-      <figure>
-        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/pocked_passage.jpg" aria-label="A pink red blood cell with small coloured vacuoles passes through a slit in a wall, again and again"><source src="assets/media/pocked_passage.mp4" type="video/mp4"></video>
-        <figcaption>A pocked red cell with ten vacuoles, one colour each, crosses a narrow slit again and again. <a href="https://arxiv.org/abs/2610.22646">arXiv 2026</a></figcaption>
-      </figure>
-      <figure>
-        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/echinocyte_slit.jpg" aria-label="A spiky red blood cell is pushed into a narrow slit and stays stuck"><source src="assets/media/echinocyte_slit.mp4" type="video/mp4"></video>
-        <figcaption>A stage III echinocyte stays stuck in a model splenic slit as the pressure drop rises. <a href="https://arxiv.org/abs/2611.16241">arXiv 2026</a></figcaption>
-      </figure>
-      <figure>
-        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/echinocyte_links.jpg" aria-label="Cut view of a red blood cell in a slit: the red membrane and the blue skeleton pull apart as links fail"><source src="assets/media/echinocyte_links.mp4" type="video/mp4"></video>
-        <figcaption>Cut through the slit: as a stage III echinocyte is pushed in, links between its bilayer (red) and skeleton (blue) fail (black dots). <a href="https://arxiv.org/abs/2611.16241">arXiv 2026</a></figcaption>
-      </figure>
-      <figure>
-        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/retic_tube.jpg" aria-label="A green cell changes shape as it flows through a tube"><source src="assets/media/retic_tube.mp4" type="video/mp4"></video>
-        <figcaption>A reticulocyte (green) changes shape as it flows through a 9 µm channel. <a href="https://arxiv.org/abs/2607.21810">arXiv 2026</a></figcaption>
-      </figure>
-      <figure>
-        <video muted loop playsinline preload="none" width="720" height="540" poster="assets/media/gaucher_suspension.jpg" aria-label="Many red blood cells tumble in a suspension"><source src="assets/media/gaucher_suspension.mp4" type="video/mp4"></video>
-        <figcaption>Red blood cells in suspension, from our simulations of blood rheology in Gaucher disease. <a href="https://doi.org/10.1371/journal.pcbi.1012705"><em>PLOS Comput. Biol.</em> 2025</a></figcaption>
-      </figure>
     </div>
   </section>
 
@@ -228,19 +202,19 @@ footer{font-size:.85rem;border-top:1px solid var(--line);padding-top:14px}
     <div class="window">
       <div class="bar"><i></i><i></i><i></i>github.com/ZhaojieC</div>
       <div class="repo">
-        <a class="thumb text" href="https://github.com/ZhaojieC/rbc-dpd-lammps">RBC<br>DPD</a>
+        <a class="thumb" href="https://github.com/ZhaojieC/rbc-dpd-lammps"><img src="assets/media/sw_rbc_dpd_lammps.jpg" width="600" height="450" loading="lazy" alt="A red cell squeezing through a slit, from the examples of rbc-dpd-lammps"></a>
         <div><h3><a href="https://github.com/ZhaojieC/rbc-dpd-lammps">rbc-dpd-lammps</a></h3><p>A red blood cell model for LAMMPS: a triangulated membrane in a DPD solvent, with bounce-back walls and five small examples, from a cell at rest to a cell in a slit.</p><div class="tags">C++ · LAMMPS · DPD</div></div>
       </div>
       <div class="repo">
-        <a class="thumb text" href="https://github.com/ZhaojieC/rbc-dpd-lammps-gpu">GPU<br>KOKKOS</a>
+        <a class="thumb" href="https://github.com/ZhaojieC/rbc-dpd-lammps-gpu"><img src="assets/media/sw_rbc_dpd_lammps_gpu.jpg" width="600" height="450" loading="lazy" alt="A red cell in pressure-driven flow bends into a parachute"></a>
         <div><h3><a href="https://github.com/ZhaojieC/rbc-dpd-lammps-gpu">rbc-dpd-lammps-gpu</a></h3><p>The same red blood cell model on one NVIDIA GPU through the KOKKOS package.</p><div class="tags">C++ · KOKKOS · CUDA</div></div>
       </div>
       <div class="repo">
-        <a class="thumb text" href="https://github.com/ZhaojieC/particlegym">RL<br>JAX</a>
+        <a class="thumb" href="https://github.com/ZhaojieC/particlegym"><img src="assets/media/sw_particlegym.jpg" width="600" height="450" loading="lazy" alt="Two fluids that do not mix separate (DPD)"></a>
         <div><h3><a href="https://github.com/ZhaojieC/particlegym">particlegym</a></h3><p>Physics-based particle simulations as fast reinforcement-learning environments in 2D and 3D: crowds, games, swimmers and cells.</p><div class="tags">Python · JAX · RL</div></div>
       </div>
       <div class="repo">
-        <a class="thumb text" href="https://github.com/ZhaojieC/Signaling-Biophysical-Framework">PINN<br>PIKAN</a>
+        <a class="thumb" href="https://github.com/ZhaojieC/Signaling-Biophysical-Framework"><img src="assets/media/sw_signaling.jpg" width="600" height="450" loading="lazy" alt="A red cell held by the protrusions of a macrophage, rendered from the DPD model of the paper"></a>
         <div><h3><a href="https://github.com/ZhaojieC/Signaling-Biophysical-Framework">Signaling-Biophysical-Framework</a></h3><p>Code for the macrophage signaling model in <em>PNAS Nexus</em> (2026): parameter inference with PINNs and PIKANs.</p><div class="tags">Python · JAX · PyTorch</div></div>
       </div>
     </div>
@@ -276,25 +250,5 @@ footer{font-size:.85rem;border-top:1px solid var(--line);padding-top:14px}
   <footer>Last updated: November 2026</footer>
 </main>
 </div>
-<script>
-// Research Highlights: each loop plays only while it is on screen. Readers who ask for reduced motion get the
-// poster with player controls instead.
-(function(){
-  var vids=document.querySelectorAll('.gallery video');
-  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(still||!('IntersectionObserver' in window)){
-    for(var i=0;i<vids.length;i++){vids[i].controls=true;vids[i].preload='metadata';}
-    return;
-  }
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      var v=e.target;
-      if(e.isIntersecting){var p=v.play(); if(p&&p.catch){p.catch(function(){v.controls=true;});}}
-      else{v.pause();}
-    });
-  },{threshold:0.25});
-  for(var j=0;j<vids.length;j++){io.observe(vids[j]);}
-})();
-</script>
 </body>
 </html>
